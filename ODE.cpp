@@ -9,8 +9,8 @@ float der_v(float vv);
 int main()
 {
 	float h=0.0001;
-	int i=2;
-	int puntos=10;
+	//int i=2;
+	int puntos=1000;
 	float seno=0.85;
 	float coseno=0.85;
 	float t[puntos];
@@ -35,7 +35,7 @@ int main()
 	//std::cout<<t[0]<<" "<<x[0]<<" "<<v[0]<<std::endl;
 	//std::cout<<t[1]<<" "<<x[1]<<" "<<v[1]<<std::endl;
 	//std::cout<<v[1]<<" "<<v[2]<<" "<<vx[0]<<" "<<vy[0]<<std::endl;	
-	while (i<=puntos)
+	for (int i =2; i<puntos; i++)
 	{
 		t[i]= t[i-1] + h;
 		x[i]= x[i-2] + h*2*der_x(vx[i-1]);
@@ -46,7 +46,6 @@ int main()
 		v[i]=pow(bla,0.5);
 		
 		std::cout<<x[i]<<" "<<y[i]<<" "<<vy[i]<<std::endl;
-		i=i+1;
 	}
 	return 0;
 }
@@ -58,7 +57,7 @@ float der_vy(float vyy, float vv)
 
 float der_vx(float vxx, float vv)
 {
-	return -vxx*abs(vv);
+	return -10.0-vxx*abs(vv);
 }
 
 float der_x(float vxx)
