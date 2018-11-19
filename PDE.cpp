@@ -53,7 +53,10 @@ int main()
 	float presente[50][50];
 	int k1=0;
 	t= t+delta_t;
-	
+	ofstream fijo22;
+	fijo22.open("datosPromedioFijo.dat");
+	ofstream fijo222;
+	fijo222.open("tiempoFijo.dat");
 	while(t<=t_max)
 	{
 		for (int i=0; i<50; i++)
@@ -133,10 +136,9 @@ int main()
 			fijo222.close();
 			
 		}
-		if(k1%1000==0)
+		if(k1%10000==0)
 		{
-			ofstream fijo22;
-			fijo22.open("datosPromedioFijo.dat");
+			
 			for (int k=0; k<50; k++)
 			{
 				for (int l=0; l<50; l++)
@@ -146,17 +148,18 @@ int main()
 				}
 				fijo22<< std::endl;
 			}
-			fijo22.close();
-			ofstream fijo222;
-			fijo222.open("tiempoFijo.dat");
+			
+			
 			fijo222<<t<<std::endl;
-			fijo222.close();
+			
 			
 		}
-		//std::cout<<k1<<std::endl;
 		k1=k1+1;
 		t=t+delta_t;	
 	}
+	fijo22.close();
+	fijo222.close();
+
 
 	ofstream myfile;
 	myfile.open ("datos_fijo.dat");
@@ -175,6 +178,11 @@ int main()
 	int k2=0;
 	t= 0+delta_t;
 	float t_max2=500000;
+
+	ofstream ab22;
+	ab22.open("datosPromedioAbierto.dat");
+	ofstream ab222;
+	ab222.open("tiempoAbierto.dat");
 	while(t<=t_max2)
 	{
 		for (int i=0; i<50; i++)
@@ -234,10 +242,9 @@ int main()
 			}
 			ab2.close();
 		}
-		if(k2%50000==0)
+		if(k2%10000==0)
 		{
-			ofstream ab22;
-			ab22.open("datosPromedioAbierto.dat");
+			
 			for (int k=0; k<50; k++)
 			{
 				for (int l=0; l<50; l++)
@@ -247,17 +254,20 @@ int main()
 				}
 				ab22<< std::endl;
 			}
-			ab22.close();
-			ofstream ab222;
-			ab222.open("tiempoAbierto.dat");
+			
+			
 			ab222<<t<<std::endl;
-			ab222.close();
+			
 			
 		}
 		k2=k2+1;
 		t=t+delta_t;	
 
 	}
+
+	ab22.close();
+	ab222.close();
+
 	ofstream myfile2;
 	myfile2.open ("datos_abierto.dat");
 	for (int k=0; k<50; k++)
@@ -273,9 +283,15 @@ int main()
 
 
 	//datos periodico
+
+	ofstream p22;
+	p22.open("datosPromedioPeriodico.dat");
+
+	ofstream p222;
+	p222.open("tiempoPeriodico.dat");	
 	int k3=0;
 	t= 0+delta_t;
-	float t_max3=150000;
+	float t_max3=500000;
 	while(t<=t_max3)
 	{
 		for (int i=0; i<50; i++)
@@ -335,10 +351,9 @@ int main()
 			}
 			p2.close();
 		}
-		if(k3%50000==0)
+		if(k3%10000==0)
 		{
-			ofstream p22;
-			p22.open("datosPromedioPeriodico.dat");
+			
 			for (int k=0; k<50; k++)
 			{
 				for (int l=0; l<50; l++)
@@ -348,11 +363,10 @@ int main()
 				}
 				p22<< std::endl;
 			}
-			p22.close();
-			ofstream p222;
-			p222.open("tiempoPeriodico.dat");
+			
+			
 			p222<<t<<std::endl;
-			p222.close();
+			
 
 			
 		}
@@ -360,6 +374,9 @@ int main()
 		t=t+delta_t;	
 
 	}
+	p22.close();
+	p222.close();
+
 	ofstream myfile3;
 	myfile3.open ("datos_periodico.dat");
 	for (int k=0; k<50; k++)
