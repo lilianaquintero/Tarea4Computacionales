@@ -52,33 +52,50 @@ Estas dos gr\aficas muestran el cambio de la temperatura para dos tiempos interm
 \end{center}
 Esta gr\'afica muestra la condici\'on de equilibrio encontrada, nunca llegan a 100 ya que los extremos son fijos sin embargo llega un punto en el que ya no aumenta o dosminuye m\as la temperatura. Queda en un punto estable.
 
+\begin{center}
+\includegraphics[width=8cm]{Promedio1.pdf}
+\end{center}
+La grafica dle promedio de temperaturas a traves del tiempo muestra que la temperatura va aumentando hasta que el gradiente de cambio es muy bajo y la temperatura deja de aumentar que es cuando consideramos el equilibrio termico.
+
 \subsection{Fronteras abiertas}
-Para fronteras abiertas las part\iculas de lso extremos se comportan libremente como el resto de las part\'iculas.
+Para fronteras abiertas las part\'iculas de los extremos se comportan libremente como el resto de las part\'iculas.
 
 \begin{center}
 \includegraphics[width=8cm]{5.pdf}
 \end{center}
-
+La condici\'on inicial es la misma qeu la de fronteras fijas con la barilla a 100 y el resto a 10
 \includegraphics[width=6cm]{6.pdf}
 \includegraphics[width=6cm]{7.pdf}
+Estas gr\'aficas muestran los puntos medios ya se puede observar que debido a que las fronteras no son fijas la placa completa va aumentando su temperatura para eventualmente llegar a la temperatura de equilibrio.
 
 \begin{center}
 \includegraphics[width=8cm]{8.pdf}
 \end{center}
+Esta gr\'afica muestra el cambio de temperatura al pasar 500.000 segundos, la temperatura de equilibrio se encuentra m\'as arriba cuando toda la placa llegue a 100 grados, sin embargo debido al gran n\'umero de iteraciones necesarias en el c\'odigo se us\'o este valor y no el final.
 
+\begin{center}
+\includegraphics[width=8cm]{Promedio3.pdf}
+\end{center}
+Se puede ver que el cambio de temperatura a traves del tiempo es mas lineal que el caso de fronteras fijas, y hay un aumento continuo, en la grafica no se alcanza a observar la temperatura de equilibrio qeu es cuando deja de crecer la recta y la pendiente se vuelve 0 esto debido a que el numero de iteraciones no se uso para alcanzar dicho equilibrio.
 
 \subsection{Fronteras peri\'odicas}
+Para las fronteras peri\'odicas es como considerar que nuestra placa esta 'conectada' a otras cuatro placas en sus extremos, lo qeu sucede a un extremo se 'pasa' al otro y as\'i se determina el comportamiento de las fronteras de nuestra placa.
+
 \begin{center}
 \includegraphics[width=8cm]{9.pdf}
 \end{center}
-
+Igualmente las condiciones iniciales son las mismas.
 \includegraphics[width=6cm]{10.pdf}
 \includegraphics[width=6cm]{11.pdf}
-
+Gr\'aficas para tiempos intermedio, se puede observar que el comportamiento de las fronteras abiertas como de las peri\'odicas es bastante similar debido a la simetr\'ia de la placa y el cilindro.
 \begin{center}
 \includegraphics[width=8cm]{12.pdf}
 \end{center}
+LA gr\'afica final para las condiciones peri\'odicas muestra que el resultado es similar al obtenido en las graficas para fronteras abiertas, como ya se mencion\'o debido a la simetr\'ia del sistema, igualmente se observa que la temperatura aumenta y cuando se llegue al valor para la estabilidad toda la placa se va a encontrar en 100 grados.
 
-
+\begin{center}
+\includegraphics[width=8cm]{Promedio3.pdf}
+\end{center}
+Al igual que la grafica del promedio de temperaturas para las condiciones abiertas se observa un cambio de temperatura lineal como se esperab debido a la simetria encontrada en el sistema.
 
 \end{document}
