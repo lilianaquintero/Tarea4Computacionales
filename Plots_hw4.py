@@ -57,6 +57,9 @@ plt.plot(g40x,g40y, label="40")
 plt.plot(g50x,g50y, label="50")
 plt.plot(g60x,g60y, label="60")
 plt.plot(g70x,g70y, label="70")
+plt.xlabel("Dist x")
+plt.ylabel("Dist y")
+plt.title("MOv del proyectil para diferentes angulos")
 plt.legend(loc="best")
 plt.show()
 
@@ -300,5 +303,43 @@ line= ax5.plot_surface(x5,y5,z,color='b')
 ani=animation.FuncAnimation(fig5, data, fargs=(z,line), frames=3, interval=1000)
 plt.show()
 
+#promedios
+p1=np.gefromxtxt("datosPromedioFijo.dat")
+t1=np.genfromtxt("tiempoFijo.dat")
+m_p=[]
+for i in range(50):
+	for j in range(50):
+		if(((i-25)*(i-25)) + ((j-25)*(j-25))) > 25):				
+			m_p.append(p1[i,j])
+			
+pp1= np.average(m_p)
+plt.figure()
+plt.plot(t1,pp1)
+plt.show()
 
+p2=np.gefromxtxt("datosPromedioAbierto.dat")
+t2=np.genfromtxt("tiempoAbierto.dat")
+m_p2=[]
+for i in range(50):
+	for j in range(50):
+		if(((i-25)*(i-25))+((j-25)*(j-25))) > 25):				
+			m_p2.append(p2[i,j])
+			
+pp2= np.average(m_p2)
+plt.figure()
+plt.plot(t2,pp2)
+plt.show()
+
+p3=np.gefromxtxt("datosPromedioPeriodico.dat")
+t3=np.genfromtxt("tiempoPeriodico.dat")
+m_p3=[]
+for i in range(50):
+	for j in range(50):
+		if(((i-25)*(i-25)) + ((j-25)*(j-25))) > 25):				
+			m_p3.append(p3[i,j])
+			
+pp3= np.average(m_p3)
+plt.figure()
+plt.plot(t3,pp3)
+plt.show()
 
