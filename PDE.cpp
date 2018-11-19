@@ -133,6 +133,27 @@ int main()
 			fijo222.close();
 			
 		}
+		if(k1%1000==0)
+		{
+			ofstream fijo22;
+			fijo22.open("datosPromedioFijo.dat");
+			for (int k=0; k<50; k++)
+			{
+				for (int l=0; l<50; l++)
+				{
+							
+					fijo22<<presente[k][l]<<" ";
+				}
+				fijo22<< std::endl;
+			}
+			fijo22.close();
+			ofstream fijo222;
+			fijo222.open("tiempoFijo.dat");
+			fijo222<<t<<std::endl;
+			fijo222.close();
+			
+		}
+		//std::cout<<k1<<std::endl;
 		k1=k1+1;
 		t=t+delta_t;	
 	}
