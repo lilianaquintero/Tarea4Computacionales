@@ -4,14 +4,61 @@ from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 
 import matplotlib.animation as animation
-txt= np.genfromtxt("datos4.dat")
+txt= np.genfromtxt("datos45.dat")
 
 x=txt[:,0]
 v=txt[:,1]
 plt.plot(x,v)
 plt.show()
 
+txt2=np.genfromtxt("datos_otros.dat")
 
+g10x=[]
+g10y=[]
+g20x=[]
+g20y=[]
+g30x=[]
+g30y=[]
+g40x=[]
+g40y=[]
+g50x=[]
+g50y=[]
+g60x=[]
+g60y=[]
+g70x=[]
+g70y=[]
+for i in range(len(txt2)):
+	if(txt2[i,2]==1):
+		g10x.append(txt2[i,0])
+		g10y.append(txt2[i,1])
+	if(txt2[i,2]==2):
+		g20x.append(txt2[i,0])
+		g20y.append(txt2[i,1])
+	if(txt2[i,2]==3):
+		g30x.append(txt2[i,0])
+		g30y.append(txt2[i,1])
+	if(txt2[i,2]==4):
+		g40x.append(txt2[i,0])
+		g40y.append(txt2[i,1])
+	if(txt2[i,2]==5):
+		g50x.append(txt2[i,0])
+		g50y.append(txt2[i,1])
+	if(txt2[i,2]==6):
+		g60x.append(txt2[i,0])
+		g60y.append(txt2[i,1])
+	if(txt2[i,2]==7):
+		g70x.append(txt2[i,0])
+		g70y.append(txt2[i,1])
+plt.figure()
+plt.plot(g10x,g10y, label="10")
+plt.plot(g20x,g20y, label="20")
+plt.plot(g30x,g30y, label="30")
+plt.plot(g40x,g40y, label="40")
+plt.plot(g50x,g50y, label="50")
+plt.plot(g60x,g60y, label="60")
+plt.plot(g70x,g70y, label="70")
+plt.legend(loc="best")
+plt.show()
 
 #PDEs
 
