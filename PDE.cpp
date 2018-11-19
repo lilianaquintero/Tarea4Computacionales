@@ -239,7 +239,7 @@ int main()
 		}
 		k=k+1;
 		t=t+delta_t;
-		if (k==40000)
+		if (k==5000)
 		{
 			ofstream p;
 			p.open("datos_int1_periodico.dat");
@@ -255,7 +255,7 @@ int main()
 			p.close();
 		}
 
-		if (k==90000)
+		if (k==100000)
 		{
 			ofstream p2;
 			p2.open("datos_int2_periodico.dat");
