@@ -1,20 +1,19 @@
-Resultados_hw4.pdf : Plot_ODE_1.pdf Plot_ODE_2.pdf resultados.tex
-	pdflatex resultados.tex
+Resultados_hw4.pdf : Plot_ODE_2.pdf Resultados_hw4.tex
 
-Plot_ODE_1.pdf : datos_ODE.dat datos_PDE.dat Plots_hw4.py
+	pdflatex Resultados_hw4.tex
+
+
+Plot_ODE_2.pdf : datos_otros.dat Plots_hw4.py
 	python Plots_hw4.py
 
-Plot_ODE_2.pdf : datos_ODE.dat datos_PDE.dat Plots_hw4.py
-	python Plots_hw4.py
+datos45.dat : a.outODE
+	./a.outODE
 
-datos_ODE.dat : a.out
-	./a.out>>datos_ODE.dat
+a.outODE : ODE.cpp
+	g++ -o a.outODE ODE.cpp
 
-a.out : ODE.cpp
-	g++ ODE.cpp
-
-datos_PDE.dat : a.out
-	./a.out>>datos_PDE.dat
+datos_periodico.dat : a.out
+	./a.out>>
 
 a.out : PDE.cpp
 	g++ PDE.cpp
