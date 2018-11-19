@@ -2,8 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
-
 import matplotlib.animation as animation
+from matplotlib.ticker import LinearLocator, FormatStrFormatter
+
+
+
+
 txt= np.genfromtxt("datos45.dat")
 
 x=txt[:,0]
@@ -335,28 +339,81 @@ ax2.set_zlabel('Temperatura')
 plt.title("Grafica final-extremos periodico (equilibrio)")
 plt.savefig("12.pdf")
 
-
-
-
 #animacion
-def data(i, z, line):
-	z=M[i]
-	ax.clear()
-	line=ax.plot_surface(x,y,z,color='b')
+M=[]
+d=np.genfromtxt("datosPromedioFijo.dat")
+n=len(d)/50
+
+for i in range(n):
+	x=d[i*50:(i+1)*50][0::]
+	M.append(x)
+M[1][0][0]=10
+
+def data(i, z5, line):
+	z5=M[i]
+	ax5.clear()
+	line=ax5.plot_surface(x5,y5,z5,cmap=cm.viridis, antialiased=False)
 	return line
 fig5=plt.figure()
-
+ax5=fig5.add_subplot(111, projection='3d')
 x5=np.linspace(-25,24,50, dtype='int')
 y5=np.linspace(-25,24,50, dtype='int')
-z= f0(x5,y5)
-ax5=fig5.add_subplot(111, projection='3d')
 
 x5,y5=np.meshgrid(x5,y5)
-line= ax5.plot_surface(x5,y5,z,color='b')
+z5= M[0]
 
-ani=animation.FuncAnimation(fig5, data, fargs=(z,line), frames=3, interval=1000)
+line= ax5.plot_surface(x5,y5,z5,cmap=cm.viridis, antialiased=False)
+fig5.colorbar(line, shrink=0.5, aspect=5)
+ani=animation.FuncAnimation(fig5, data, fargs=(M,line), frames=len(M), interval=30, blit=False)
+#ani.save("animacion_fijos.gif", writer ="imagemagick", fps=100)
 
 
 #promedios
+#promedios
+
+
+p1=np.genfromtxt("datosPromedioFijo.dat")
+t1=np.genfromtxt("tiempoFijo.dat")
+m_p=[]
+	
+for i in range(n):	
+		x=p1[i*50:(i+1)*50][0::]				
+		m_p.append(x)
+	
+
+#for j in range(49):
+#	for ii in range(49):
+#		if (m_p[i][j][ii]==100):
+#			b[i]=np.delete(m_p[i],[j][ii])
+
+for i in range(len(m_p)):
+	m_p[i]=np.average(m_p[i])
+
+plt.figure()
+plt.plot(t1,m_p)
+plt.savefig("Promedio1.pdf")
+
+
+p3=np.genfromtxt("datosPromedioPeriodico.dat")
+t3=np.genfromtxt("tiempoPeriodico.dat")
+m_p3=[]
+	
+for i in range(n):	
+		x3=p3[i*50:(i+1)*50][0::]				
+		m_p3.append(x3)
+	
+
+#for j in range(49):
+#	for ii in range(49):
+#		if (m_p[i][j][ii]==100):
+#			b[i]=np.delete(m_p[i],[j][ii])
+
+for i in range(len(m_p3)):
+	m_p3[i]=np.average(m_p3[i])
+
+plt.figure()
+plt.plot(t1,m_p3)
+plt.savefig("Promedio3.pdf")
+
 
 
