@@ -11,7 +11,7 @@ int main()
 	{
 		for (int j=0; j<50; j++)
 		{
-			if(   (((i-25)*(i-25)) + ((j-25)*(j-25))) <= 25)				
+			if(   (((i-25)*(i-25)) + ((j-25)*(j-25))) < 25 or (((i-25)*(i-25)) + ((j-25)*(j-25))) ==25)				
 			{
 				pasado[i][j]= 100;
 			}
@@ -33,9 +33,11 @@ int main()
 			pasado[0][l]=10;
 			pasado[49][l]=10;
 			pasado[k][0]=10;
-			pasado[k][49]=10;			
+			pasado[k][49]=10;
+			std::cout<<pasado[k][l]<<" ";			
 			file<<pasado[k][l]<<" ";
 		}
+	
 		file<< std::endl;
 	}
 	file.close();
@@ -49,8 +51,9 @@ int main()
 	float t_max=500000;
 	float t=0;
 	float presente[50][50];
-	int k=0;
+	int k1=0;
 	t= t+delta_t;
+	
 	while(t<=t_max)
 	{
 		for (int i=0; i<50; i++)
@@ -64,7 +67,7 @@ int main()
 				presente[i][0]=10;
 				presente[i][49]=10;
 
-				if(   (pow(i-25,2) + pow(j-25,2)) <=25)				
+				if(   (pow(i-25,2) + pow(j-25,2)) <25 or (pow(i-25,2) + pow(j-25,2)) ==25)				
 				{
 					presente[i][j]= 100;
 				}			
@@ -78,9 +81,8 @@ int main()
 				pasado[k][l]=presente[k][l];
 			}
 		}
-		k=k+1;
-		t=t+delta_t;
-		if (k==40000)
+		
+		if (k1==40000)
 		{
 			ofstream fijo;
 			fijo.open("datos_int1_fijo.dat");
@@ -96,7 +98,7 @@ int main()
 			fijo.close();
 		}
 
-		if (k==90000)
+		if (k1==90000)
 		{
 			ofstream fijo2;
 			fijo2.open("datos_int2_fijo.dat");
@@ -111,7 +113,28 @@ int main()
 			}
 			fijo2.close();
 		}
-		
+		if(k1==50000 or k1==100000 or k1==150000 or k1==200000 or k1==250000 or k1==300000 or k1==350000)
+		{
+			ofstream fijo22;
+			fijo22.open("datosPromedioFijo.dat");
+			for (int k=0; k<50; k++)
+			{
+				for (int l=0; l<50; l++)
+				{
+							
+					fijo22<<presente[k][l]<<" ";
+				}
+				fijo22<< std::endl;
+			}
+			fijo22.close();
+			ofstream fijo222;
+			fijo222.open("tiempoFijo.dat");
+			fijo222<<t<<std::endl;
+			fijo222.close();
+			
+		}
+		k1=k1+1;
+		t=t+delta_t;	
 	}
 
 	ofstream myfile;
@@ -128,7 +151,7 @@ int main()
 	myfile.close();
 
  	//datos Abierto
-	k=0;
+	int k2=0;
 	t= 0+delta_t;
 	float t_max2=500000;
 	while(t<=t_max2)
@@ -144,7 +167,7 @@ int main()
 				presente[i][0]=pasado[i][1];
 				presente[i][49]=pasado[i][48];
 
-				if(   (pow(i-25,2) + pow(j-25,2)) <=25)				
+				if(   (pow(i-25,2) + pow(j-25,2)) <25 or (pow(i-25,2) + pow(j-25,2)) == 25)				
 				{
 					presente[i][j]= 100;
 				}			
@@ -158,9 +181,8 @@ int main()
 				pasado[k][l]=presente[k][l];
 			}
 		}
-		k=k+1;
-		t=t+delta_t;
-		if (k==1000)
+		
+		if (k2==1000)
 		{
 			ofstream ab;
 			ab.open("datos_int1_abiero.dat");
@@ -176,7 +198,7 @@ int main()
 			ab.close();
 		}
 
-		if (k==200000)
+		if (k2==200000)
 		{
 			ofstream ab2;
 			ab2.open("datos_int2_abierto.dat");
@@ -191,6 +213,29 @@ int main()
 			}
 			ab2.close();
 		}
+		if(k2%50000==0)
+		{
+			ofstream ab22;
+			ab22.open("datosPromedioAbierto.dat");
+			for (int k=0; k<50; k++)
+			{
+				for (int l=0; l<50; l++)
+				{
+							
+					ab22<<presente[k][l]<<" ";
+				}
+				ab22<< std::endl;
+			}
+			ab22.close();
+			ofstream ab222;
+			ab222.open("tiempoAbierto.dat");
+			ab222<<t<<std::endl;
+			ab222.close();
+			
+		}
+		k2=k2+1;
+		t=t+delta_t;	
+
 	}
 	ofstream myfile2;
 	myfile2.open ("datos_abierto.dat");
@@ -207,7 +252,7 @@ int main()
 
 
 	//datos periodico
-	k=0;
+	int k3=0;
 	t= 0+delta_t;
 	float t_max3=150000;
 	while(t<=t_max3)
@@ -223,7 +268,7 @@ int main()
 				presente[i][0]=pasado[i][48];
 				presente[i][49]=pasado[i][1];
 
-				if(   (pow(i-25,2) + pow(j-25,2)) <=25)				
+				if(   (pow(i-25,2) + pow(j-25,2)) <25 or (pow(i-25,2) + pow(j-25,2)) ==25)				
 				{
 					presente[i][j]= 100;
 				}			
@@ -237,9 +282,8 @@ int main()
 				pasado[k][l]=presente[k][l];
 			}
 		}
-		k=k+1;
-		t=t+delta_t;
-		if (k==5000)
+		
+		if (k3==5000)
 		{
 			ofstream p;
 			p.open("datos_int1_periodico.dat");
@@ -255,7 +299,7 @@ int main()
 			p.close();
 		}
 
-		if (k==100000)
+		if (k3==100000)
 		{
 			ofstream p2;
 			p2.open("datos_int2_periodico.dat");
@@ -270,6 +314,29 @@ int main()
 			}
 			p2.close();
 		}
+		if(k3%50000==0)
+		{
+			ofstream p22;
+			p22.open("datosPromedioPeriodico.dat");
+			for (int k=0; k<50; k++)
+			{
+				for (int l=0; l<50; l++)
+				{
+							
+					p22<<presente[k][l]<<" ";
+				}
+				p22<< std::endl;
+			}
+			p22.close();
+			ofstream p222;
+			p222.open("tiempoPeriodico.dat");
+			p222<<t<<std::endl;
+			p222.close();
+
+			
+		}
+		k3=k3+1;
+		t=t+delta_t;	
 
 	}
 	ofstream myfile3;
