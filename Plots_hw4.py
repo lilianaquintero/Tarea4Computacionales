@@ -9,8 +9,11 @@ txt= np.genfromtxt("datos45.dat")
 x=txt[:,0]
 v=txt[:,1]
 plt.plot(x,v)
+plt.xlabel("Dist x")
+plt.ylabel("Dist y")
+plt.title("Mov del proyectil para 45 grados")
+#plt.savefig("Plot_ODE_1.pdf")
 plt.show()
-
 txt2=np.genfromtxt("datos_otros.dat")
 
 g10x=[]
@@ -59,10 +62,10 @@ plt.plot(g60x,g60y, label="60")
 plt.plot(g70x,g70y, label="70")
 plt.xlabel("Dist x")
 plt.ylabel("Dist y")
-plt.title("MOv del proyectil para diferentes angulos")
+plt.title("Mov del proyectil para diferentes angulos")
 plt.legend(loc="best")
+#plt.savefig("Plot_ODE_2.pdf")
 plt.show()
-
 #PDEs
 
 #cond inciiales
@@ -81,7 +84,12 @@ ax0=fig0.gca(projection='3d')
 x0, y0=np.meshgrid(x0, y0)
 surf0= ax0.plot_surface(x0,y0,z_0, cmap=cm.viridis, linewidth=0.2)
 fig0.colorbar(surf0, shrink=0.5, aspect=5)
-plt.show()
+ax0.set_xlabel('X')
+ax0.set_ylabel('Y')
+ax0.set_zlabel('Temperatura')
+plt.title("Condiciones iniciales-extremos fijos")
+plt.savefig("1.pdf")
+
 
 
 #cond fijas
@@ -102,7 +110,12 @@ ax00=fig00.gca(projection='3d')
 x00, y00=np.meshgrid(x00, y00)
 surf00= ax00.plot_surface(x00,y00,z_00, cmap=cm.viridis, linewidth=0.2)
 fig00.colorbar(surf00, shrink=0.5, aspect=5)
-plt.show()
+ax00.set_xlabel('X')
+ax00.set_ylabel('Y')
+ax00.set_zlabel('Temperatura')
+plt.title("Paso intermedio-extremo fijo")
+plt.savefig("2.pdf")
+
 
 dat01=np.genfromtxt("datos_int2_fijo.dat")
 fig01=plt.figure()
@@ -118,7 +131,12 @@ ax01=fig01.gca(projection='3d')
 x01, y01=np.meshgrid(x01, y01)
 surf01= ax01.plot_surface(x01,y01,z_01, cmap=cm.viridis, linewidth=0.2)
 fig01.colorbar(surf01, shrink=0.5, aspect=5)
-plt.show()
+ax01.set_xlabel('X')
+ax01.set_ylabel('Y')
+ax01.set_zlabel('Temperatura')
+plt.title("Paso intermedio-extremo fijo")
+plt.savefig("3.pdf")
+
 
 
 #cond fijo final
@@ -137,7 +155,12 @@ ax=fig.gca(projection='3d')
 x, y=np.meshgrid(x, y)
 surf= ax.plot_surface(x,y,z_fijo, cmap=cm.viridis, linewidth=0.2)
 fig.colorbar(surf, shrink=0.5, aspect=5)
-plt.show()
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Temperatura')
+plt.title("Grafica final-extremos fijos (equilibrio)")
+plt.savefig("4.pdf")
+
 
 #cond abierto
 
@@ -157,7 +180,12 @@ ax0=fig0.gca(projection='3d')
 x0, y0=np.meshgrid(x0, y0)
 surf0= ax0.plot_surface(x0,y0,z_0, cmap=cm.viridis, linewidth=0.2)
 fig0.colorbar(surf0, shrink=0.5, aspect=5)
-plt.show()
+ax0.set_xlabel('X')
+ax0.set_ylabel('Y')
+ax0.set_zlabel('Temperatura')
+plt.title("Condicion inicial-extremos abiertos")
+plt.savefig("5.pdf")
+
 
 #cond int abierto
 
@@ -174,7 +202,11 @@ ax10=fig10.gca(projection='3d')
 x10, y10=np.meshgrid(x10, y10)
 surf10= ax10.plot_surface(x10,y10,z_10, cmap=cm.viridis, linewidth=0.2)
 fig10.colorbar(surf10, shrink=0.5, aspect=5)
-plt.show()
+ax10.set_xlabel('X')
+ax10.set_ylabel('Y')
+ax10.set_zlabel('Temperatura')
+plt.title("Paso intermedio-extremos abiertos")
+plt.savefig("6.pdf")
 
 dat11= np.genfromtxt("datos_int2_abierto.dat")
 x11=np.linspace(-25,24,50, dtype='int')
@@ -189,7 +221,8 @@ ax11=fig11.gca(projection='3d')
 x11, y11=np.meshgrid(x11, y11)
 surf11= ax11.plot_surface(x11,y11,z_11, cmap=cm.viridis, linewidth=0.2)
 fig11.colorbar(surf11, shrink=0.5, aspect=5)
-plt.show()
+plt.title("Paso intermedio-extremos abiertos")
+plt.savefig("7.pdf")
 
 
 #cond final abiero
@@ -206,7 +239,13 @@ fig1=plt.figure()
 ax1=fig1.gca(projection='3d')
 x1, y1=np.meshgrid(x1, y1)
 surf1= ax1.plot_surface(x1,y1,z_abierto, cmap=cm.viridis, linewidth=0.2)
-plt.show()
+fig1.colorbar(surf1, shrink=0.5, aspect=5)
+ax1.set_xlabel('X')
+ax1.set_ylabel('Y')
+ax1.set_zlabel('Temperatura')
+plt.title("Grafica final-extremos abiertos(equilibrio)")
+plt.savefig("8.pdf")
+
 
 #cond periodico
 #inicial
@@ -225,7 +264,12 @@ ax0=fig0.gca(projection='3d')
 x0, y0=np.meshgrid(x0, y0)
 surf0= ax0.plot_surface(x0,y0,z_0, cmap=cm.viridis, linewidth=0.2)
 fig0.colorbar(surf0, shrink=0.5, aspect=5)
-plt.show()
+ax0.set_xlabel('X')
+ax0.set_ylabel('Y')
+ax0.set_zlabel('Temperatura')
+plt.title("Condicion inicial-extremos periodico")
+plt.savefig("9.pdf")
+
 
 #intermedios periodico
 
@@ -243,7 +287,12 @@ ax20=fig20.gca(projection='3d')
 x20, y20=np.meshgrid(x20, y20)
 surf20= ax20.plot_surface(x20,y20,z_20, cmap=cm.viridis, linewidth=0.2)
 fig20.colorbar(surf20, shrink=0.5, aspect=5)
-plt.show()
+ax20.set_xlabel('X')
+ax20.set_ylabel('Y')
+ax20.set_zlabel('Temperatura')
+plt.title("Paso intermedio.extremos periodico")
+plt.savefig("10.pdf")
+
 
 dat21= np.genfromtxt("datos_int2_abierto.dat")
 x21=np.linspace(-25,24,50, dtype='int')
@@ -258,7 +307,11 @@ ax21=fig21.gca(projection='3d')
 x21, y21=np.meshgrid(x21, y21)
 surf21= ax21.plot_surface(x21,y21,z_21, cmap=cm.viridis, linewidth=0.2)
 fig21.colorbar(surf21, shrink=0.5, aspect=5)
-plt.show()
+ax21.set_xlabel('X')
+ax21.set_ylabel('Y')
+ax21.set_zlabel('Temperatura')
+plt.title("Paso intermedio.extremos periodico")
+plt.savefig("11.pdf")
 
 
 #fianl periodico
@@ -275,14 +328,15 @@ fig2=plt.figure()
 ax2=fig2.gca(projection='3d')
 x2, y2=np.meshgrid(x2, y2)
 surf2= ax2.plot_surface(x2,y2,z_p, cmap=cm.viridis, linewidth=0.2)
-fig.colorbar(surf2, shrink=0.5, aspect=5)
-plt.show()
+fig2.colorbar(surf2, shrink=0.5, aspect=5)
+ax2.set_xlabel('X')
+ax2.set_ylabel('Y')
+ax2.set_zlabel('Temperatura')
+plt.title("Grafica final-extremos periodico (equilibrio)")
+plt.savefig("12.pdf")
 
-M=[]
-M.append(z_0)
-M.append(z_10)
-M.append(z_11)
-M.append(z_abierto)
+
+
 
 #animacion
 def data(i, z, line):
@@ -301,45 +355,8 @@ x5,y5=np.meshgrid(x5,y5)
 line= ax5.plot_surface(x5,y5,z,color='b')
 
 ani=animation.FuncAnimation(fig5, data, fargs=(z,line), frames=3, interval=1000)
-plt.show()
+
 
 #promedios
-p1=np.gefromxtxt("datosPromedioFijo.dat")
-t1=np.genfromtxt("tiempoFijo.dat")
-m_p=[]
-for i in range(50):
-	for j in range(50):
-		if(((i-25)*(i-25)) + ((j-25)*(j-25))) > 25):				
-			m_p.append(p1[i,j])
-			
-pp1= np.average(m_p)
-plt.figure()
-plt.plot(t1,pp1)
-plt.show()
 
-p2=np.gefromxtxt("datosPromedioAbierto.dat")
-t2=np.genfromtxt("tiempoAbierto.dat")
-m_p2=[]
-for i in range(50):
-	for j in range(50):
-		if(((i-25)*(i-25))+((j-25)*(j-25))) > 25):				
-			m_p2.append(p2[i,j])
-			
-pp2= np.average(m_p2)
-plt.figure()
-plt.plot(t2,pp2)
-plt.show()
-
-p3=np.gefromxtxt("datosPromedioPeriodico.dat")
-t3=np.genfromtxt("tiempoPeriodico.dat")
-m_p3=[]
-for i in range(50):
-	for j in range(50):
-		if(((i-25)*(i-25)) + ((j-25)*(j-25))) > 25):				
-			m_p3.append(p3[i,j])
-			
-pp3= np.average(m_p3)
-plt.figure()
-plt.plot(t3,pp3)
-plt.show()
 
