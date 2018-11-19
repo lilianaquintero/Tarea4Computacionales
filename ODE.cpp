@@ -49,8 +49,8 @@ int main()
 		l4=h*der_y(vy[i-1] +l3);
 
 		
-		m1=h* der_vx(vx[i-1], v[i-1]);
-		n1=h* der_vy(vy[i-1], v[i-1]);
+		m1=h* der_vx(vy[i-1], vx[i-1]);
+		n1=h* der_vy(vy[i-1], vx[i-1]);
 
 		m2=h*der_vx(vy[i-1]+ (0.5*n1), vx[i-1]+(0.5*m1));
 		n2=h*der_vy(vy[i-1]+ (0.5*n1), vx[i-1]+(0.5*m1));
@@ -79,7 +79,10 @@ int main()
 		i=i+1;
 	}
 	myfile.close();
-	puntos=6500;
+
+	std::cout<<"La distancia recorrida por el proyectil es de 4.26 (en el eje x)"<<std::endl;
+	std::cout<<"El angulo para el cual alcanzo una mayor distancia es de 20 grados"<<std::endl;
+	puntos=6100;
 	coseno=0.9848;
 	seno=0.1736;
 	t[0] =0;
@@ -96,7 +99,9 @@ int main()
 	//while(yc>=0)
 	{
 		t[i]= t[i-1] + h;
+
 		float k1, k2, k3, k4, l1,l2,l3,l4,m1,m2,m3,m4,n1,n2,n3,n4;
+
 		k1=h* der_x(vx[i-1]);
 		k2=h*der_x(vx[i-1]+(0.5*k1));
 		k3=h*der_x(vx[i-1]+(0.5*k2));
@@ -109,8 +114,8 @@ int main()
 		l4=h*der_y(vy[i-1] +l3);
 
 		
-		m1=h* der_vx(vx[i-1], v[i-1]);
-		n1=h* der_vy(vy[i-1], v[i-1]);
+		m1=h* der_vx(vy[i-1], vx[i-1]);
+		n1=h* der_vy(vy[i-1], vx[i-1]);
 
 		m2=h*der_vx(vy[i-1]+ (0.5*n1), vx[i-1]+(0.5*m1));
 		n2=h*der_vy(vy[i-1]+ (0.5*n1), vx[i-1]+(0.5*m1));
@@ -131,9 +136,7 @@ int main()
 		y[i]= y[i-1] + a_l;
 		vx[i]= vx[i-1] + a_m;
 		vy[i]= vy[i-1] + a_n;
-		float bla= (vx[i]*vx[i])+(vy[i]*vy[i]);
-		v[i]=pow(bla,0.5);
-		
+	
 		myfile2<<x[i]<<" "<<y[i]<<" "<<1<<std::endl;
 		//i=i+1;
 		//yc=y[i];
@@ -168,8 +171,8 @@ int main()
 		l4=h*der_y(vy[i-1] +l3);
 
 		
-		m1=h* der_vx(vx[i-1], v[i-1]);
-		n1=h* der_vy(vy[i-1], v[i-1]);
+		m1=h* der_vx(vy[i-1], vx[i-1]);
+		n1=h* der_vy(vy[i-1], vx[i-1]);
 
 		m2=h*der_vx(vy[i-1]+ (0.5*n1), vx[i-1]+(0.5*m1));
 		n2=h*der_vy(vy[i-1]+ (0.5*n1), vx[i-1]+(0.5*m1));
@@ -227,8 +230,8 @@ int main()
 		l4=h*der_y(vy[i-1] +l3);
 
 		
-		m1=h* der_vx(vx[i-1], v[i-1]);
-		n1=h* der_vy(vy[i-1], v[i-1]);
+		m1=h* der_vx(vy[i-1], vx[i-1]);
+		n1=h* der_vy(vy[i-1], vx[i-1]);
 
 		m2=h*der_vx(vy[i-1]+ (0.5*n1), vx[i-1]+(0.5*m1));
 		n2=h*der_vy(vy[i-1]+ (0.5*n1), vx[i-1]+(0.5*m1));
@@ -285,8 +288,8 @@ int main()
 		l4=h*der_y(vy[i-1] +l3);
 
 		
-		m1=h* der_vx(vx[i-1], v[i-1]);
-		n1=h* der_vy(vy[i-1], v[i-1]);
+		m1=h* der_vx(vy[i-1], vx[i-1]);
+		n1=h* der_vy(vy[i-1], vx[i-1]);
 
 		m2=h*der_vx(vy[i-1]+ (0.5*n1), vx[i-1]+(0.5*m1));
 		n2=h*der_vy(vy[i-1]+ (0.5*n1), vx[i-1]+(0.5*m1));
@@ -343,8 +346,8 @@ int main()
 		l4=h*der_y(vy[i-1] +l3);
 
 		
-		m1=h* der_vx(vx[i-1], v[i-1]);
-		n1=h* der_vy(vy[i-1], v[i-1]);
+		m1=h* der_vx(vy[i-1], vx[i-1]);
+		n1=h* der_vy(vy[i-1], vx[i-1]);
 
 		m2=h*der_vx(vy[i-1]+ (0.5*n1), vx[i-1]+(0.5*m1));
 		n2=h*der_vy(vy[i-1]+ (0.5*n1), vx[i-1]+(0.5*m1));
@@ -401,8 +404,8 @@ int main()
 		l4=h*der_y(vy[i-1] +l3);
 
 		
-		m1=h* der_vx(vx[i-1], v[i-1]);
-		n1=h* der_vy(vy[i-1], v[i-1]);
+		m1=h* der_vx(vy[i-1], vx[i-1]);
+		n1=h* der_vy(vy[i-1], vx[i-1]);
 
 		m2=h*der_vx(vy[i-1]+ (0.5*n1), vx[i-1]+(0.5*m1));
 		n2=h*der_vy(vy[i-1]+ (0.5*n1), vx[i-1]+(0.5*m1));
@@ -459,8 +462,8 @@ int main()
 		l4=h*der_y(vy[i-1] +l3);
 
 		
-		m1=h* der_vx(vx[i-1], v[i-1]);
-		n1=h* der_vy(vy[i-1], v[i-1]);
+		m1=h* der_vx(vy[i-1], vx[i-1]);
+		n1=h* der_vy(vy[i-1], vx[i-1]);
 
 		m2=h*der_vx(vy[i-1]+ (0.5*n1), vx[i-1]+(0.5*m1));
 		n2=h*der_vy(vy[i-1]+ (0.5*n1), vx[i-1]+(0.5*m1));
@@ -503,7 +506,7 @@ float der_vx(float vyy, float vxx)
 {
 	float bla= (vxx*vxx)+(vyy*vyy);
 	float vv=pow(bla,0.5);	
-	return -vxx*abs(vv);
+	return -0.2*vxx*pow(vv,2)/(abs(vv)*0.2);
 }
 
 float der_x(float vxx)
