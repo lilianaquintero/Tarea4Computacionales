@@ -16,8 +16,8 @@ plt.plot(x,v)
 plt.xlabel("Dist x")
 plt.ylabel("Dist y")
 plt.title("Mov del proyectil para 45 grados")
-#plt.savefig("Plot_ODE_1.pdf")
-plt.show()
+plt.savefig("Plot_ODE_1.pdf")
+
 txt2=np.genfromtxt("datos_otros.dat")
 
 g10x=[]
@@ -68,8 +68,8 @@ plt.xlabel("Dist x")
 plt.ylabel("Dist y")
 plt.title("Mov del proyectil para diferentes angulos")
 plt.legend(loc="best")
-#plt.savefig("Plot_ODE_2.pdf")
-plt.show()
+plt.savefig("Plot_ODE_2.pdf")
+
 #PDEs
 
 #cond inciiales
@@ -340,18 +340,20 @@ plt.title("Grafica final-extremos periodico (equilibrio)")
 plt.savefig("12.pdf")
 
 #animacion
-M=[]
+D=[]
+D.append(inicial)
 d=np.genfromtxt("datosPromedioFijo.dat")
 n=len(d)/50
 
 for i in range(n):
 	x=d[i*50:(i+1)*50][0::]
-	M.append(x)
-M[1][0][0]=10
+	D.append(x)
+D[2][0][0]=10
 
 def data(i, z5, line):
-	z5=M[i]
+	z5=D[i]
 	ax5.clear()
+	ax5.set_zlim(0,100)
 	line=ax5.plot_surface(x5,y5,z5,cmap=cm.viridis, antialiased=False)
 	return line
 fig5=plt.figure()
@@ -360,13 +362,73 @@ x5=np.linspace(-25,24,50, dtype='int')
 y5=np.linspace(-25,24,50, dtype='int')
 
 x5,y5=np.meshgrid(x5,y5)
-z5= M[0]
+z5= D[0]
 
 line= ax5.plot_surface(x5,y5,z5,cmap=cm.viridis, antialiased=False)
 fig5.colorbar(line, shrink=0.5, aspect=5)
-ani=animation.FuncAnimation(fig5, data, fargs=(M,line), frames=len(M), interval=30, blit=False)
+ani=animation.FuncAnimation(fig5, data, fargs=(D,line), frames=len(D), interval=30, blit=False)
 #ani.save("animacion_fijos.gif", writer ="imagemagick", fps=100)
+plt.show()
 
+D2=[]
+D2.append(inicial)
+d2=np.genfromtxt("datosPromedioAbierto.dat")
+n2=len(d2)/50
+
+for i in range(n2):
+	x2=d2[i*50:(i+1)*50][0::]
+	D2.append(x2)
+D2[2][0][0]=10
+
+def data2(i, z52, line2):
+	z52=D2[i]
+	ax52.clear()
+	ax52.set_zlim(0,100)
+	line2=ax52.plot_surface(x52,y52,z52,cmap=cm.viridis, antialiased=False)
+	return line2
+fig52=plt.figure()
+ax52=fig52.add_subplot(111, projection='3d')
+x52=np.linspace(-25,24,50, dtype='int')
+y52=np.linspace(-25,24,50, dtype='int')
+
+x52,y52=np.meshgrid(x52,y52)
+z52= D2[0]
+
+line2= ax52.plot_surface(x52,y52,z52,cmap=cm.viridis, antialiased=False)
+fig52.colorbar(line2, shrink=0.5, aspect=5)
+ani2=animation.FuncAnimation(fig52, data2, fargs=(D2,line), frames=len(D2), interval=30, blit=False)
+#ani.save("animacion_fijos.gif", writer ="imagemagick", fps=100)
+plt.show()
+
+D3=[]
+D3.append(inicial)
+d3=np.genfromtxt("datosPromedioAbierto.dat")
+n3=len(d3)/50
+
+for i in range(n3):
+	x3=d3[i*50:(i+1)*50][0::]
+	D3.append(x3)
+D3[2][0][0]=10
+
+def data3(i, z53, line3):
+	z53=D3[i]
+	ax53.clear()
+	ax53.set_zlim(0,100)
+	line3=ax53.plot_surface(x53,y53,z53,cmap=cm.viridis, antialiased=False)
+	return line3
+fig53=plt.figure()
+ax53=fig53.add_subplot(111, projection='3d')
+x53=np.linspace(-25,24,50, dtype='int')
+y53=np.linspace(-25,24,50, dtype='int')
+
+x53,y53=np.meshgrid(x53,y53)
+z53= D3[0]
+
+line3= ax53.plot_surface(x53,y53,z53,cmap=cm.viridis, antialiased=False)
+fig53.colorbar(line3, shrink=0.5, aspect=5)
+ani3=animation.FuncAnimation(fig53, data3, fargs=(D3,line3), frames=len(D3), interval=30, blit=False)
+#ani.save("animacion_fijos.gif", writer ="imagemagick", fps=100)
+plt.show()
 
 #promedios
 #promedios
@@ -391,8 +453,30 @@ for i in range(len(m_p)):
 
 plt.figure()
 plt.plot(t1,m_p)
+plt.title("Promedio de Temperatura a traves del tiempo para extremos fijos")
 plt.savefig("Promedio1.pdf")
 
+p22=np.genfromtxt("datosPromedioPeriodico.dat")
+t22=np.genfromtxt("tiempoPeriodico.dat")
+m_p22=[]
+	
+for i in range(n):	
+		x22=p22[i*50:(i+1)*50][0::]				
+		m_p22.append(x22)
+	
+
+#for j in range(49):
+#	for ii in range(49):
+#		if (m_p[i][j][ii]==100):
+#			b[i]=np.delete(m_p[i],[j][ii])
+
+for i in range(len(m_p22)):
+	m_p22[i]=np.average(m_p22[i])
+
+plt.figure()
+plt.plot(t22,m_p22)
+plt.title("Promedio de Temperatura a traves del tiempo para extremos abiertos")
+plt.savefig("Promedio2.pdf")
 
 p3=np.genfromtxt("datosPromedioPeriodico.dat")
 t3=np.genfromtxt("tiempoPeriodico.dat")
@@ -412,7 +496,8 @@ for i in range(len(m_p3)):
 	m_p3[i]=np.average(m_p3[i])
 
 plt.figure()
-plt.plot(t1,m_p3)
+plt.plot(t3,m_p3)
+plt.title("Promedio de Temperatura a traves del tiempo para extremos periodicos")
 plt.savefig("Promedio3.pdf")
 
 
